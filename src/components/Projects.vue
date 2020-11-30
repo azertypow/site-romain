@@ -64,9 +64,6 @@
         if(! this.projectData.images) return []
 
         return this.projectData.images.map(value => {
-
-          console.log( value )
-
           return value.directus_files_id.data?.full_url || ""
         })
       }
