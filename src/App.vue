@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <intro></intro>
     <projects
         v-for="project of projects"
         :project-data = "project"
@@ -12,10 +13,12 @@
 import { Component, Vue } from 'vue-property-decorator';
 import Projects from "@/components/Projects.vue"
 import {IApiProject} from "@/IApiProject"
+import Intro from "@/components/Intro.vue"
 
 @Component({
   components: {
-    Projects
+    Projects,
+    Intro
   }
 })
 export default class App extends Vue {
@@ -26,13 +29,20 @@ export default class App extends Vue {
 </script>
 
 <style lang="scss">
+@import "./style/parameters";
+@import "./style/font";
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  @include font-3;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow: scroll;
   scroll-snap-type: y mandatory;
   width: 100%;
   height: 100%;
+}
+
+em {
+  font-family: $font-family--serif;
 }
 </style>

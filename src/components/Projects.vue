@@ -125,6 +125,7 @@
 
 <style lang="scss" scoped>
 @import "../style/parameters";
+@import "../style/font";
 
 
 .v-projects {
@@ -182,8 +183,8 @@
 }
 
 .v-projects__text__title {
+  @include font-1;
   margin: 0;
-  font-size: 100px;
   padding-left: $gutter;
   padding-right: $gutter;
 }
@@ -191,11 +192,20 @@
 .v-projects__text__value {
   padding-left: $gutter;
   padding-right: $gutter;
-}
+  padding-bottom: $line-height / 2;
 
-.v-projects__text__value::first-letter {
-  color: red;
-  font-family: serif;
+  /deep/ > *:first-child {
+    margin-top: 0;
+  }
+
+  /deep/ > *:last-child {
+    margin-bottom: 0;
+  }
+
+  /deep/ ::first-letter {
+    color: red;
+    font-family: $font-family--serif;
+  }
 }
 
 .v-projects__images {
