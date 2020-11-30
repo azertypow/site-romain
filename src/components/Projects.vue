@@ -1,14 +1,12 @@
 <template>
-    <section class="v-projects" :class="{'is-open': isOpen}">
+    <section class="v-projects"
+             :class="{'is-open': isOpen}"
+             @click="navClick"
+    >
 
       <button class="v-project__button"
-              @click="onClick"
+              @click="onClickButton"
       >+</button>
-
-      <div class="v-project__nav">
-        <div class="v-project__nav__left"></div>
-        <div class="v-project__nav__right"></div>
-      </div>
 
       <div class="v-projects__intro"
            v-if="!isOpen"
@@ -25,8 +23,9 @@
         ></div>
       </div>
 
-      <div class="v-projects__images">
+      <div class="v-projects__images" ref="imageContainer">
         <img
+            class="v-projects__images__items"
             v-for="image of images"
             :src="image"
             :alt="`image of ${title}`">
@@ -64,8 +63,31 @@
 
       isOpen = false
 
-      onClick() {
+      onClickButton( e: MouseEvent ) {
+        e.stopPropagation()
         this.isOpen = !this.isOpen
+      }
+
+      navClick(e: MouseEvent) {
+        const rightScreenClicked = e.clientX > window.innerWidth / 2
+
+        if( rightScreenClicked )  this.goToNextImage()
+        else                      this.goToBeforeImage()
+      }
+
+      getCurrentImageIndex() {
+        let i = 0,
+            toReturn = 0
+
+        if( this.$refs.imageContainer instanceof HTMLElement ) {
+          for(const imageElement of this.$refs.imageContainer.childNodes) {
+            if((imageElement as HTMLElement).getBoundingClientRect().x < window.innerWidth / 2) toReturn = i
+            else break
+            i++
+          }
+        }
+
+        return toReturn
       }
 
       get images(): string[] {
@@ -75,6 +97,27 @@
         return this.projectData.images.map(value => {
           return value.directus_files_id.data?.full_url || ""
         })
+      }
+
+      get imageContainer(): HTMLElement | null {
+        const imageContainer = this.$refs.imageContainer
+        return imageContainer instanceof HTMLElement ? imageContainer : null
+      }
+
+      get numberOfImages(): number {
+        return this.imageContainer ? this.imageContainer.childElementCount : 0
+      }
+
+      goToNextImage() {
+        const imageContainerWidth       = this.imageContainer?.getBoundingClientRect().width || 0
+        const imageContainerScrollLeft  = this.imageContainer?.scrollLeft || 0
+        this.imageContainer?.scrollTo( imageContainerScrollLeft + imageContainerWidth, 0 )
+      }
+
+      goToBeforeImage() {
+        const imageContainerWidth       = this.imageContainer?.getBoundingClientRect().width || 0
+        const imageContainerScrollLeft  = this.imageContainer?.scrollLeft || 0
+        this.imageContainer?.scrollTo( imageContainerScrollLeft - imageContainerWidth, 0 )
       }
 
     }
@@ -123,44 +166,19 @@
   }
 }
 
-.v-project__nav {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 25;
-  width: 100%;
-  height: 100%;
-}
-
-.v-project__nav__left {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100%;
-  cursor: w-resize;
-}
-
-.v-project__nav__right {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50%;
-  height: 100%;
-  cursor: e-resize;
-}
-
 .v-projects__text {
   position: absolute;
   z-index: 10;
   display: flex;
-  top: 50%;
+  top: 0;
   left: 0;
   width: 100%;
   box-sizing: border-box;
   padding: $gutter;
-  height: 50%;
+  height: 100%;
   align-items: flex-end;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
 }
 
 .v-projects__text__title {
@@ -187,6 +205,20 @@
   width: 100%;
   height: 100%;
   z-index: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  scroll-snap-type: x mandatory;
+  overflow: scroll;
+  scroll-behavior: smooth;
+}
+
+.v-projects__images__items {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  flex-grow: 0;
+  object-fit: cover;
+  scroll-snap-align: center;
 }
 
 </style>
