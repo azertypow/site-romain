@@ -20,7 +20,9 @@
            v-if="isOpen"
       >
         <h2 class="v-projects__text__title">{{title}}</h2>
-        <div class="v-projects__text__value">{{description}}</div>
+        <div class="v-projects__text__value"
+             v-html="descriptionHTML"
+        ></div>
       </div>
 
       <div class="v-projects__images">
@@ -36,6 +38,7 @@
 <script lang="ts">
     import { Vue, Component, Prop } from "vue-property-decorator";
     import {IApiProject} from "@/IApiProject"
+    import MarkdownIt from "markdown-it"
 
     @Component({
       mounted(this: Projects) {
@@ -52,6 +55,12 @@
       title: string = this.projectData.title
 
       description: string = this.projectData.description
+
+      get descriptionHTML(): string {
+        const markdownIt = new MarkdownIt()
+
+        return markdownIt.render( this.description )
+      }
 
       isOpen = false
 
