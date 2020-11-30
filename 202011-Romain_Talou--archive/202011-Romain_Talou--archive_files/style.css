@@ -1,0 +1,121 @@
+html, body {
+  overflow: hidden;
+
+}
+
+* {
+margin : 0;
+padding: 0;
+}
+
+body {
+  background-color: white;
+
+}
+
+canvas {
+  position:fixed;
+   top:0;
+   left:0;
+   z-index:1;
+
+}
+#contenu {
+  position:relative;
+  z-index:2;
+
+ }
+
+@font-face {
+font-family: SuisseIntMed;
+src: url("./SI_Medium.otf");
+}
+
+@font-face {
+font-family: SuisseIntThin;
+src: url("./SI_UltraLight.otf");
+}
+
+  a {
+    text-decoration: none;
+    color:  black;
+   }
+
+  .thin {
+      font-family: SuisseIntThin;
+      display: inline;
+      font-size: 6vw;
+  }
+
+
+  .main_texte {
+
+    color: black;
+    width : 80vw;
+    font-size: 6vw;
+    font-family: SuisseIntMed;
+    letter-spacing: normal;
+    margin: 20px;
+  }
+
+  .arena {
+  width: 6.5vw;
+  }
+
+
+  .heart {
+   position: fixed;
+   right: 0px;
+   top: 0;
+   color: black;
+   font-size: 5vw;
+   margin: 20px;
+   padding-right: .7vw;
+  font-family:fontello;
+
+}
+
+i {
+  font-style: normal!important;
+}
+
+.heart:hover {
+  color: red;
+}
+
+
+  .network {
+    position: fixed;
+    bottom: 0;
+    color: black;
+    width : 80vw;
+    font-size: 6vw;
+    font-family: SuisseIntMed;
+    letter-spacing: normal;
+    margin: 20px;
+    animation-delay: 6s;
+    width: 2%;
+  }
+
+  .network_link:hover {
+      color: red;
+  }
+
+
+  @font-face {
+        font-family: 'fontello';
+        src: url('./fontello.woff?25795502');
+      }
+
+
+/* Responsive */
+
+@media screen and (max-width: 600px) {
+
+  .main_texte {
+    width : 90vw;
+    font-size: 8vw;
+    margin: 30px;
+  }
+
+}
