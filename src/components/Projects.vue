@@ -84,6 +84,7 @@
   overflow: hidden;
   position: relative;
   user-select: none;
+  scroll-snap-align: start;
 }
 
 .v-projects__intro {
