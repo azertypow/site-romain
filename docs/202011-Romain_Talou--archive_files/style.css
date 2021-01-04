@@ -28,12 +28,12 @@ canvas {
 
 @font-face {
 font-family: SuisseIntMed;
-src: url("./SI_Medium.otf");
+src: url("../Font/SI_Medium.otf");
 }
 
 @font-face {
 font-family: SuisseIntThin;
-src: url("./SI_UltraLight.otf");
+src: url("../Font/SI_UltraLight.otf");
 }
 
   a {
@@ -59,7 +59,7 @@ src: url("./SI_UltraLight.otf");
   }
 
   .arena {
-  width: 6.5vw;
+  width: 15vw;
   }
 
 
@@ -68,9 +68,9 @@ src: url("./SI_UltraLight.otf");
    right: 0px;
    top: 0;
    color: black;
-   font-size: 5vw;
+   font-size: 20vw;
    margin: 20px;
-   padding-right: .7vw;
+   padding-right: 4vw;
   font-family:fontello;
 
 }
@@ -89,7 +89,7 @@ i {
     bottom: 0;
     color: black;
     width : 80vw;
-    font-size: 6vw;
+    font-size: 15vw;
     font-family: SuisseIntMed;
     letter-spacing: normal;
     margin: 20px;
@@ -104,7 +104,12 @@ i {
 
   @font-face {
         font-family: 'fontello';
-        src: url('./fontello.woff?25795502');
+        src: url('../Font/fontello.eot?25795502');
+        src: url('../Font/fontello.eot?25795502#iefix') format('embedded-opentype'),
+             url('../Font/fontello.woff?25795502') format('woff'),
+             url('../Font/fontello.ttf?25795502') format('truetype'),
+             url('../ Font/fontello.svg?25795502#fontello') format('svg');
+
       }
 
 
