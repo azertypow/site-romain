@@ -28,12 +28,12 @@ canvas {
 
 @font-face {
 font-family: SuisseIntMed;
-src: url("../Font/SI_Medium.otf");
+src: url("./SI_Medium.otf");
 }
 
 @font-face {
 font-family: SuisseIntThin;
-src: url("../Font/SI_UltraLight.otf");
+src: url("./SI_UltraLight.otf");
 }
 
   a {
@@ -104,11 +104,11 @@ i {
 
   @font-face {
         font-family: 'fontello';
-        src: url('../Font/fontello.eot?25795502');
-        src: url('../Font/fontello.eot?25795502#iefix') format('embedded-opentype'),
-             url('../Font/fontello.woff?25795502') format('woff'),
-             url('../Font/fontello.ttf?25795502') format('truetype'),
-             url('../ Font/fontello.svg?25795502#fontello') format('svg');
+        src: url('.fontello.eot?25795502');
+        src: url('./fontello.eot?25795502#iefix') format('embedded-opentype'),
+             url('./fontello.woff?25795502') format('woff'),
+             url('./fontello.ttf?25795502') format('truetype'),
+             url('./fontello.svg?25795502#fontello') format('svg');
 
       }
 
