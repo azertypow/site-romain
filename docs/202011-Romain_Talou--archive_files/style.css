@@ -104,7 +104,7 @@ i {
 
   @font-face {
         font-family: 'fontello';
-        src: url('.fontello.eot?25795502');
+        src: url('./fontello.eot?25795502');
         src: url('./fontello.eot?25795502#iefix') format('embedded-opentype'),
              url('./fontello.woff?25795502') format('woff'),
              url('./fontello.ttf?25795502') format('truetype'),
