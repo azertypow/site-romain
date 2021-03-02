@@ -171,7 +171,7 @@ function createDownloadLink(blob) {
 	var upload = document.createElement('a');
 	upload.className = "sendIcon";
 	upload.href="#";
-	upload.innerHTML = "Send";
+	upload.innerHTML = "Hello";
 	upload.addEventListener("click", function(event){
 		  var xhr=new XMLHttpRequest();
 		  xhr.onload=function(e) {
@@ -184,6 +184,14 @@ function createDownloadLink(blob) {
 		  //xhr.open("POST","upload.php",true);
 			xhr.open("POST","https://projects.mastermediadesign.ch/Sender/upload.php",true);
 		  xhr.send(fd);
+
+			var sendButton = document.getElementsByClassName("sendIcon");
+			sendButton[0].style.opacity = "0";
+			document.getElementById("formats").innerHTML="Thank you."
+
+
+
+
 	})
 	li.appendChild(document.createTextNode (" "))//add a space in between
 	li.appendChild(upload)//add the upload link to li
@@ -193,6 +201,17 @@ function createDownloadLink(blob) {
 }
 
 //typewritter
+
+
+var startSound = document.getElementById("touch");
+startSound.addEventListener("click", startVocal);
+function startVocal(){
+setTimeout(function(){
+	document.getElementById("my_audio").play();
+	console.log('your audio is started just now');
+}, 0)
+document.getElementById("recordStatue").innerHTML="Sorry, the Lab is closed for now, but please leave a message telling us";
+startSound.style.display = "none";
 
 setTimeout(function(){
 
@@ -287,4 +306,6 @@ function typeWriter(id, ar) {
   }
 }
 
-}, 7500)
+}, 5000)
+
+}
