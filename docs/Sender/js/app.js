@@ -181,7 +181,8 @@ function createDownloadLink(blob) {
 		  };
 		  var fd=new FormData();
 		  fd.append("audio_data",blob, filename);
-		  xhr.open("POST","upload.php",true);
+		  //xhr.open("POST","upload.php",true);
+			xhr.open("POST","https://projects.mastermediadesign.ch/Sender/upload.php",true);
 		  xhr.send(fd);
 	})
 	li.appendChild(document.createTextNode (" "))//add a space in between
