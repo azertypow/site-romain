@@ -56,7 +56,21 @@ function startRecording() {
 		audioContext = new AudioContext();
 
 		//update the format
+
+		function myFunction(xRec) {
+  if (xRec.matches) { // If media query matches
+		document.getElementById("recordStatue").innerHTML="Recording at "+audioContext.sampleRate/1000+"kHz";
+
+  } else {
 		document.getElementById("recordStatue").innerHTML="Recording on channel 1 at pcm @ "+audioContext.sampleRate/1000+"kHz";
+
+  }
+}
+
+var xRec = window.matchMedia("(max-width: 400px)")
+myFunction(xRec) // Call listener function at run time
+xRec.addListener(myFunction) // Attach listener function on state changes
+
 
 		//document.getElementById("recordStatue").style.animationName = "color2";
 
@@ -214,8 +228,8 @@ startSound.style.display = "none";
 
 function myFunction(mobileX) {
   if (mobileX.matches) { // If media query matches
-		document.getElementById("recordStatue").innerHTML="a";
-		document.getElementById("recordStatue").style.color="rgba(0,0,0,0)";
+		document.getElementById("recordStatue").innerHTML="[...]";
+		//document.getElementById("recordStatue").style.color="rgba(0,0,0,0)";
   } else {
 		document.getElementById("recordStatue").innerHTML="Sorry, the Lab is closed for now, but please leave a message telling us";
   }
