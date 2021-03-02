@@ -210,8 +210,20 @@ setTimeout(function(){
 	document.getElementById("my_audio").play();
 	console.log('your audio is started just now');
 }, 0)
-document.getElementById("recordStatue").innerHTML="Sorry, the Lab is closed for now, but please leave a message telling us";
 startSound.style.display = "none";
+
+function myFunction(mobileX) {
+  if (mobileX.matches) { // If media query matches
+		document.getElementById("recordStatue").innerHTML="a";
+		document.getElementById("recordStatue").style.color="rgba(0,0,0,0)";
+  } else {
+		document.getElementById("recordStatue").innerHTML="Sorry, the Lab is closed for now, but please leave a message telling us";
+  }
+}
+
+var mobileX = window.matchMedia("(max-width: 400px)")
+myFunction(mobileX) // Call listener function at run time
+mobileX.addListener(myFunction)
 
 setTimeout(function(){
 
@@ -228,7 +240,7 @@ var textArray = [
 
 // Speed (in milliseconds) of typing.
 var speedForward = 40, //Typing Speed
-    speedWait = 2000, // Wait between typing and backspacing
+    speedWait = 2500, // Wait between typing and backspacing
     speedBetweenLines = 800, //Wait between first and second lines
     speedBackspace = 25; //Backspace Speed
 

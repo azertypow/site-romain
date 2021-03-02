@@ -39,7 +39,7 @@ body {
 	overflow-wrap: break-word;
 	color:black;
 	margin:2em;
-  background: url(bg.jpg) no-repeat center center fixed;
+  background: url(bg_low.jpg) no-repeat center center fixed;
  -webkit-background-size: cover;
  -moz-background-size: cover;
  -o-background-size: cover;
@@ -328,9 +328,9 @@ h4.cursor::after {
     width: 62vw;
   }
 
-  #recordStatue {
+  /* #recordStatue {
     display: none;
-  }
+  } */
 
 
 
