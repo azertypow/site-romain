@@ -9,6 +9,17 @@
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
+
+
+    <audio control autoplay src="sound/emeteur_voice.wav" id="my_audio"></audio>
+     <script type="text/javascript">
+       setTimeout(function(){
+         document.getElementById("my_audio").play();
+         console.log('your audio is started just now');
+       }, 2000)
+     </script>
+
+
     <h1>AM.01</h1>
 
 
@@ -21,7 +32,19 @@
     <p><strong>Answering machine</a></strong></p>
 
 
-    <div id="formats">The Lab is closed for now, but we have a message for you, touch your screen for listen it.</div>
+    <div id="formats">
+
+      <div class="container py-5">
+        <div class="output" id="output">
+          <div id="recordStatue">Sorry, the Lab is closed for now, but please leave a message telling us</div>
+
+
+          <h3 class="cursor" id="subcursor0"></h3>
+          <h4 id="subcursor"></h4>
+
+        </div>
+      </div></div>
+
 
 
     <div id="controls">
@@ -34,6 +57,10 @@
   	<ol id="recordingsList"></ol>
     <!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
   	<script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+    <script src="jquery.min.js"></script>
+
   	<script src="js/app.js"></script>
+    <!-- partial -->
+
   </body>
 </html>
