@@ -94,10 +94,12 @@ red {
 
 #recordButton {
   display: block;
-margin-left: auto;
-margin-right: auto;
-/* background: #ed341d; */
-background: rgba(255, 0, 50, 0.4);
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  /* background: #ed341d; */
+  background: rgba(255, 255, 255, 0.1);
+  transition: opacity 2s;
 }
 
 #stopButton {

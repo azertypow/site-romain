@@ -225,6 +225,7 @@ setTimeout(function(){
 	console.log('your audio is started just now');
 }, 0)
 startSound.style.display = "none";
+recordButton.style.opacity ="1";
 
 function myFunction(mobileX) {
   if (mobileX.matches) { // If media query matches
