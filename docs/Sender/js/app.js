@@ -74,9 +74,9 @@ xRec.addListener(myFunction) // Attach listener function on state changes
 
 		//document.getElementById("recordStatue").style.animationName = "color2";
 
-		document.getElementById("subcursor0").style.color = "rgba(0, 0, 0, 0.3)";
+		document.getElementById("subcursor0").style.color = "rgba(0, 0, 0, 0.15)";
 
-		document.getElementById("subcursor").style.color = "rgba(0, 0, 0, 0.3)";
+		document.getElementById("subcursor").style.color = "rgba(0, 0, 0, 0.15)";
 
 		//document.getElementById("recordStatue").style.color = "rgba(255, 0, 0, 0.7)";
 
@@ -251,7 +251,7 @@ var i = 0,
 // Typerwrite text content. Use a pipe to indicate the start of the second line "|".
 var textArray = [
   "What is your last memory of being at your workspace?|Thank you.",
-  " | Press the button to start your recording."
+  "What is your last memory of being at your workspace?| Press the button to start recording."
 ];
 
 // Speed (in milliseconds) of typing.
