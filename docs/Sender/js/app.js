@@ -74,9 +74,8 @@ xRec.addListener(myFunction) // Attach listener function on state changes
 
 		//document.getElementById("recordStatue").style.animationName = "color2";
 
-		document.getElementById("subcursor0").style.color = "rgba(0, 0, 0, 0.15)";
+		
 
-		document.getElementById("subcursor").style.color = "rgba(0, 0, 0, 0.15)";
 
 		//document.getElementById("recordStatue").style.color = "rgba(255, 0, 0, 0.7)";
 
