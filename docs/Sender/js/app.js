@@ -250,7 +250,8 @@ var i = 0,
 
 // Typerwrite text content. Use a pipe to indicate the start of the second line "|".
 var textArray = [
-  "What is your last memory of being at your workspace?|Thank you."
+  "What is your last memory of being at your workspace?|Thank you.",
+  " | Press the button to start your recording."
 ];
 
 // Speed (in milliseconds) of typing.
