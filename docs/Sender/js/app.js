@@ -5,6 +5,8 @@ var gumStream; 						//stream from getUserMedia()
 var rec; 							//Recorder.js object
 var input; 							//MediaStreamAudioSourceNode we'll be recording
 
+
+
 // shim for AudioContext when it's not avb.
 var AudioContext = window.AudioContext || window.webkitAudioContext;
 var audioContext //audio context to help us record
@@ -21,10 +23,6 @@ pauseButton.addEventListener("click", pauseRecording);
 function startRecording() {
 	console.log("recordButton clicked");
 
-	/*
-		Simple constraints object, for more advanced audio features see
-		https://addpipe.com/blog/audio-constraints-getusermedia/
-	*/
 
     var constraints = { audio: true, video:false }
 
@@ -36,8 +34,7 @@ function startRecording() {
 	stopButton.disabled = false;
 	pauseButton.disabled = false
 
-	recordButton.style.display = "none";
-	stopButton.style.display = "block";
+
 
 	/*
     	We're using the standard promise based getUserMedia()
@@ -57,12 +54,18 @@ function startRecording() {
 
 		//update the format
 
+		document.getElementById("recordStatue").style.color="rgba(255, 0, 50, 0.9)";
+		document.getElementById("recordStatue").style.animationName = "colorText";
+
 		function myFunction(xRec) {
   if (xRec.matches) { // If media query matches
-		document.getElementById("recordStatue").innerHTML="Recording at "+audioContext.sampleRate/1000+"kHz";
+		document.getElementById("recordStatue").innerHTML="Recording";
+		document.getElementById("subcursor0").style.display = "none";
+		document.getElementById("stopInfoQuestion").style.display = "block";
 
   } else {
-		document.getElementById("recordStatue").innerHTML="Recording on channel 1 at pcm @ "+audioContext.sampleRate/1000+"kHz";
+		document.getElementById("recordStatue").innerHTML="Recording in progress";
+		//document.getElementById("recordStatue").innerHTML="Recording in progress... at "+audioContext.sampleRate/1000+"kHz";
 
   }
 }
@@ -72,9 +75,17 @@ myFunction(xRec) // Call listener function at run time
 xRec.addListener(myFunction) // Attach listener function on state changes
 
 
+  recordButton.style.display = "none";
+  stopButton.style.display = "block";
+	document.getElementById("subcursor").style.display = "none";
+	document.getElementById("stopInfo").style.display = "block";
+	//document.getElementById("subcursor0").style.opacity= "0.3";
+
+
+
 		//document.getElementById("recordStatue").style.animationName = "color2";
 
-		
+
 
 
 		//document.getElementById("recordStatue").style.color = "rgba(255, 0, 0, 0.7)";
@@ -213,6 +224,8 @@ function createDownloadLink(blob) {
 	recordingsList.appendChild(li);
 }
 
+
+
 //typewritter
 
 
@@ -248,14 +261,20 @@ var i = 0,
     isParagraph = false;
 
 // Typerwrite text content. Use a pipe to indicate the start of the second line "|".
-var textArray = [
+
+
+ var textArray = [
   "What is your last memory of being at your workspace?|Thank you.",
-  "What is your last memory of being at your workspace?| Press the button to start recording."
+  "What is your last memory of being at your workspace?|Touch the button to start recording.",
+	"What is your last memory of being at your workspace?|Touch the button to start recording.",
+	"What is your last memory of being at your workspace?|Touch the button to start recording.",
+	"What is your last memory of being at your workspace?|Touch the button to start recording."
 ];
+
 
 // Speed (in milliseconds) of typing.
 var speedForward = 40, //Typing Speed
-    speedWait = 2500, // Wait between typing and backspacing
+    speedWait = 1500, // Wait between typing and backspacing
     speedBetweenLines = 800, //Wait between first and second lines
     speedBackspace = 25; //Backspace Speed
 
