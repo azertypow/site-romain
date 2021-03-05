@@ -159,7 +159,7 @@ function stopRecording() {
 	rec.exportWAV(createDownloadLink);
 
 	//update the format
-	document.getElementById("formats").innerHTML="Send us your message & hope to see you soon..."
+	document.getElementById("formats").innerHTML="<div class='recordComfirmation'>Message recorded.</div> Please, touch the button to send us your message"
 
 }
 
@@ -211,7 +211,7 @@ function createDownloadLink(blob) {
 
 			var sendButton = document.getElementsByClassName("sendIcon");
 			sendButton[0].style.opacity = "0";
-			document.getElementById("formats").innerHTML="Thank you."
+			document.getElementById("formats").innerHTML="Thank you & hope to see you soon..."
 
 
 
