@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  background: url(images/alu.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+h1 {
+  position: fixed;
+  bottom: 2vh;
+  right: 2vh;
+  color: black;
+  z-index: 2;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-weight: normal;
+}
+
+#introduction {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: white;
+  opacity: 1;
+  z-index: 4;
+  transition: opacity 1.5s ease-in-out;
+  line-height: 100vh;
+  text-align: center;
+}
+
+#introduction  p {
+  line-height: 1.5;
+  display: inline-block;
+  vertical-align: middle;
+  color: black;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-weight: lighter;
+  font-size: 2em;
+}
+
+#introduction  img {
+  position: fixed;
+  width: 16vw;
+  left: 42vw;
+  top: 30vh;
+}
+
+#gradient {
+  z-index: 1;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 20vh;
+  width: 100vw;
+  background: rgb(164,157,179);
+  background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8309698879551821) 26%, rgba(0,0,0,0) 100%);
+}
+
+#material_select {
+  position: fixed;
+  bottom: 2vh;
+  left: 2vh;
+  color: black;
+  z-index: 2;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-weight: normal;
+  font-size: 2em;
+}
+
+#environment_select {
+  position: fixed;
+  bottom: 6vh;
+  left: 2vh;
+  color: black;
+  z-index: 2;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-weight: lighter;
+  font-size: 1.2em;
+}
+
+#imageShow {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: url(images/alu.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
